@@ -7,7 +7,7 @@ import {builder} from '@builder.io/react';
 
 // Replace with your Public API Key
 // builder.init('e37c3d0bc3384d548b8cff66e8a7d594');
-builder.init('d839fb0e9a104e14bcfa8a0cd0fe81a2');
+builder.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 builder.apiVersion = "v3";
 
 // 'mach'
