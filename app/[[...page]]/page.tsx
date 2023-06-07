@@ -1,11 +1,16 @@
+'use client';
 // For pages and sections, goes in src/app/[[...page]/page.tsx]
-import { builder } from "@builder.io/sdk";
+// import { builder } from "@builder.io/sdk";
 import Head from "next/head";
 import { RenderBuilderContent } from "@/components/builder";
+import {builder} from '@builder.io/react';
 
 // Replace with your Public API Key
-builder.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+// builder.init('e37c3d0bc3384d548b8cff66e8a7d594');
+builder.init('d839fb0e9a104e14bcfa8a0cd0fe81a2');
+builder.apiVersion = "v3";
 
+// 'mach'
 // Define the expected shape of the props
 // object passed to the Page function
 interface PageProps {
@@ -29,14 +34,20 @@ export default async function Page(props: PageProps) {
     })
     // Convert the result to a promise
     .toPromise();
-    
+    // console.log('content.data', content?.data)
+    const dataModel = await builder.getAll('mach', {
+      options: {
+        vercelPreview: process.env.VERCEL_ENV === 'preview',
+      },
+    })
+    console.log('dataModel', dataModel)
   return (
     <>
       <Head>
         <title>{content?.data.title}</title>
       </Head>
       {/* Render the Builder page */}
-      <RenderBuilderContent content={content} />
+      <RenderBuilderContent content={content}  />
     </>
   );
 }

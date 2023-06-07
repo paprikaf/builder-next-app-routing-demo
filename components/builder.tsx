@@ -2,10 +2,14 @@
 "use client";
 import { builder } from "@builder.io/sdk";
 import { BuilderComponent, useIsPreviewing } from "@builder.io/react"; 
+
 import DefaultErrorPage from "next/error";
 
+
 // Replace with your Public API Key
-builder.init('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+// builder.init('e37c3d0bc3384d548b8cff66e8a7d594');
+builder.init('d839fb0e9a104e14bcfa8a0cd0fe81a2');
+builder.apiVersion = "v3";
 
 // Define a `content` property type `any`
 interface BuilderPageProps { 
